@@ -51,7 +51,7 @@ const Add = () => {
         placeholder="Descrição do livro"
         name="desc"
         onChange={handleChange}
-        maxLength={1000}
+        maxLength={800}
         style={{ maxWidth: "100%" }}
       />
       <input

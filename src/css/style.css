@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.app h1 {
+  margin-bottom: 30px;
+}
+
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.book {
+  flex: 1 1 calc(33.33% - 20px);
+  max-width: calc(33.33% - 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.book img {
+  border: 1px solid rgba(0, 0, 0, 0.062745098);
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.book h2 {
+  width: 100%;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.book p {
+  margin: 5px;
+  width: 100%;
+  font-size: 12px;
+  max-height: 250px;
+  text-align: center;
+}
+
+.book .price {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.book button,
+.book .update {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.delete {
+  background-color: rgb(242, 100, 100);
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.delete:hover {
+  background-color: rgb(220, 50, 50);
+}
+
+.update {
+  background-color: rgb(139, 139, 234);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.update:hover {
+  background-color: rgb(100, 100, 200);
+}
+
+.addButton {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 20px;
+  background-color: #00796b;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.addButton:hover {
+  background-color: #006054;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  margin: 10px;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #b0b0b0;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form textarea {
+  resize: none;
+}
+
+.form input:focus,
+.form textarea:focus {
+  border-color: #00796b;
+  outline: none;
+}
+
+.form .formButton {
+  border: none;
+  width: 100%;
+  padding: 10px;
+  background-color: #00796b;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+
+.formButton:hover {
+  background-color: #00463e;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+@media (max-width: 1024px) {
+  .book h2 {
+    font-size: 12px;
+  }
+  .book p {
+    font-size: 12px;
+  }
+  .book .price {
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .app h1 {
+    font-size: 22px;
+  }
+  .book {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+    gap: 10px;
+  }
+  .book h2 {
+    font-size: 12px;
+  }
+  .book .price {
+    font-size: 12px;
+  }
+  .book button,
+  .book .update {
+    font-size: 12px;
+  }
+  .addButton {
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .book {
+    flex: 1 1 100%;
+    max-width: 100%;
+    gap: 0px;
+    padding: 10px;
+    margin: 10px;
+  }
+  .book button,
+  .book .update {
+    padding: 6px 12px;
+  }
+  .addButton {
+    padding: 6px 12px;
+    margin: 10px;
+  }
+  .form {
+    gap: 10px;
+    padding: 10px;
+    width: 400px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
