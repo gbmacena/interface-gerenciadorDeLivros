@@ -12,22 +12,11 @@ body {
 }
 
 .app {
-  height: 100vh;
-  padding: 0 100px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.addHome {
-  padding: 10px;
-  margin-top: 20px;
-  cursor: pointer;
-  border: none;
-  background-color: teal;
-  color: white;
-  font-weight: bold;
 }
 
 .app h1 {
@@ -38,19 +27,21 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
 }
 
 .book {
-  flex: 1;
+  flex: 1 1 calc(33.33% - 20px);
+  max-width: calc(33.33% - 20px);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  width: 500px;
 }
 
 .book img {
@@ -62,7 +53,8 @@ body {
 }
 
 .book h2 {
-  font-size: 1.2em;
+  width: 100%;
+  font-size: 18px;
   margin: 10px 0;
 }
 
@@ -70,11 +62,12 @@ body {
   margin: 5px;
   width: 100%;
   font-size: 12px;
-  overflow-wrap: break-word;
-  height: 250px;
+  max-height: 250px;
+  text-align: center;
 }
 
 .book .price {
+  font-size: 18px;
   font-weight: bold;
   margin: 10px 0;
 }
@@ -99,6 +92,7 @@ body {
 .delete {
   background-color: rgb(242, 100, 100);
   color: white;
+  font-size: 14px;
 }
 
 .delete:hover {
@@ -109,13 +103,25 @@ body {
   background-color: rgb(139, 139, 234);
   color: white;
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 14px;
 }
 
 .update:hover {
   background-color: rgb(100, 100, 200);
+}
+.addButton {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 20px;
+  background-color: teal;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.addButton:hover {
+  background-color: #00695c;
 }
 
 .form {
@@ -128,7 +134,7 @@ body {
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 500px;
-  margin: auto;
+  margin: 10px;
 }
 
 .form input,
@@ -151,7 +157,7 @@ body {
   outline: none;
 }
 
-.form button {
+.form .formButton {
   border: none;
   width: 100%;
   padding: 10px;
@@ -161,9 +167,10 @@ body {
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s;
+  font-size: 14px;
 }
 
-.form button:hover {
+.formButton:hover {
   background-color: #00695c;
 }
 
@@ -173,18 +180,61 @@ body {
   margin-top: 10px;
 }
 
-.addButton {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-top: 20px;
-  background-color: teal;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s;
+@media (max-width: 1024px) {
+  .book h2 {
+    font-size: 14px;
+  }
+  .book p {
+    font-size: 10px;
+  }
+  .book .price {
+    font-size: 14px;
+  }
 }
 
-.addButton:hover {
-  background-color: #00695c;
+@media (max-width: 768px) {
+  .app h1 {
+    font-size: 22px;
+  }
+  .book {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+    gap: 10px;
+  }
+  .book h2 {
+    font-size: 12px;
+  }
+  .book .price {
+    font-size: 12px;
+  }
+  .book button,
+  .book .update {
+    font-size: 12px;
+  }
+  .addButton {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .book {
+    flex: 1 1 100%;
+    max-width: 100%;
+    gap: 0px;
+    padding: 10px;
+    margin: 10px;
+  }
+  .book button,
+  .book .update {
+    padding: 6px 12px;
+  }
+  .addButton {
+    padding: 6px 12px;
+    margin: 10px;
+  }
+  .form {
+    gap: 10px;
+    padding: 10px;
+    width: 400px;
+  }
 }

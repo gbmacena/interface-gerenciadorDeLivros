@@ -48,12 +48,11 @@ const Add = () => {
       />
       <textarea
         rows={5}
-        type="text"
         placeholder="Descrição do livro"
         name="desc"
         onChange={handleChange}
-        maxLength={600}
-        style={{ maxWidth: "470px" }}
+        maxLength={1000}
+        style={{ maxWidth: "100%" }}
       />
       <input
         type="number"
@@ -71,11 +70,13 @@ const Add = () => {
         Adicionar
       </button>
       {error && <p className="error-message">{errorMessage}</p>}
-      <button className="ButtonBack">
-        <Link style={{ textDecoration: "none", color: "white" }} to="/">
-          Voltar
-        </Link>
-      </button>
+      <Link
+        className="formButton"
+        style={{ textDecoration: "none", color: "white" }}
+        to="/"
+      >
+        Voltar
+      </Link>
     </div>
   );
 };

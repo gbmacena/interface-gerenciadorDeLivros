@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Update = () => {
   const [book, setBook] = useState({
@@ -58,11 +59,13 @@ const Update = () => {
         value={book.title}
       />
       <textarea
+        rows={5}
         placeholder="Descrição"
         name="desc"
         onChange={handleChange}
         value={book.desc}
-        maxLength={600}
+        maxLength={800}
+        style={{ maxWidth: "100%" }}
       />
       <input
         type="number"
@@ -78,8 +81,17 @@ const Update = () => {
         onChange={handleChange}
         value={book.cover}
       />
-      <button onClick={handleClick}>Atualizar</button>
+      <button className="formButton" onClick={handleClick}>
+        Atualizar
+      </button>
       {error && <p className="error-message">Algo deu errado!</p>}
+      <Link
+        className="formButton"
+        style={{ textDecoration: "none", color: "white" }}
+        to="/"
+      >
+        Voltar
+      </Link>
     </div>
   );
 };

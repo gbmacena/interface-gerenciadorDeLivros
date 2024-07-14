@@ -41,7 +41,7 @@ const Books = () => {
             <img src={book.cover} alt={book.title} />
             <h2>{book.title}</h2>
             <p>{book.desc}</p>
-            <span style={{ fontWeight: "bold" }}>{book.price}R$</span>
+            <span className="price">{book.price}R$</span>
             <div className="button-container">
               <button onClick={() => handleDelete(book._id)} className="delete">
                 Deletar
