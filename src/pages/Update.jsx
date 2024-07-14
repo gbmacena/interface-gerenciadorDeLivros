@@ -16,7 +16,9 @@ const Update = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await axios.get(`http://localhost:8800/books/${id}`);
+        const response = await axios.get(
+          `https://api-book-tracker.vercel.app/books/${id}`
+        );
         setBook(response.data);
       } catch (err) {
         setError(true);
@@ -35,7 +37,7 @@ const Update = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:8800/books/${id}`,
+        `https://api-book-tracker.vercel.app/books/${id}`,
         book
       );
       navigate("/");

@@ -28,7 +28,7 @@ const Add = () => {
     }
 
     try {
-      await axios.post("http://localhost:8800/books", book);
+      await axios.post("https://api-book-tracker.vercel.app/books", book);
       navigate("/");
     } catch (err) {
       console.log(err);
