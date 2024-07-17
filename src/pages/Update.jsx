@@ -64,7 +64,7 @@ const Update = () => {
         name="desc"
         onChange={handleChange}
         value={book.desc}
-        maxLength={800}
+        maxLength={600}
         style={{ maxWidth: "100%" }}
       />
       <input

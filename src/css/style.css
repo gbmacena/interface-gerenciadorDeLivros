@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #f0f0f0;
+  background-color: #fff;
 }
 
 .app {
@@ -38,17 +38,16 @@ body {
   justify-content: space-between;
   gap: 10px;
   padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
   border-radius: 8px;
 }
 
 .book img {
-  border: 1px solid rgba(0, 0, 0, 0.062745098);
-  width: 200px;
-  height: 300px;
+  width: 300px;
+  height: 400px;
   object-fit: cover;
   border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .book h2 {
@@ -59,7 +58,7 @@ body {
 
 .book p {
   margin: 5px;
-  width: 100%;
+  width: 70%;
   font-size: 12px;
   max-height: 250px;
   text-align: center;
@@ -90,7 +89,7 @@ body {
 
 .delete {
   background-color: rgb(242, 100, 100);
-  color: #ffffff;
+  color: #fff;
   font-size: 14px;
 }
 
@@ -100,7 +99,7 @@ body {
 
 .update {
   background-color: rgb(139, 139, 234);
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   font-size: 14px;
 }
@@ -114,7 +113,7 @@ body {
   padding: 10px 20px;
   margin: 20px;
   background-color: #00796b;
-  color: #ffffff;
+  color: #fff;
   font-weight: bold;
   border-radius: 5px;
   text-decoration: none;
@@ -129,7 +128,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 10px;
   padding: 20px;
@@ -163,7 +162,7 @@ body {
   width: 100%;
   padding: 10px;
   background-color: #00796b;
-  color: #ffffff;
+  color: #fff;
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
