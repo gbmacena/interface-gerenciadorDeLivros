@@ -1,4 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700&display=swap");
+@media (max-width: 768px) {
+  .books .book {
+    align-items: center;
+    flex-direction: column;
+  }
+  .books .book .bookInfo {
+    align-items: center;
+    display: flex;
+    margin-top: 10px;
+  }
+  .books .book .bookInfo p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 425px) {
+  .bookInfo h2 {
+    font-size: 18px;
+  }
+  .bookInfo p {
+    font-size: 12px;
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -8,78 +30,75 @@
 
 body {
   background-color: white;
+  font-size: 16px;
 }
 
 .app {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  padding: 20px;
 }
-
 .app h1 {
   font-weight: bold;
   margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
 }
 
-.books {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-}
-
-.book {
-  flex: 1 1 calc(33.33% - 20px);
-  width: 400px;
+.booksContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 10px;
-  border-radius: 8px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
 }
-
-.book img {
-  width: 200px;
-  height: 300px;
-  object-fit: cover;
+.booksContainer .books {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.booksContainer .books .book {
+  display: flex;
+  padding: 15px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  gap: 20px;
 }
-
-.book h2 {
-  width: 100%;
-  font-size: 18px;
-  font-weight: 500;
-  margin: 10px 0;
+.booksContainer .books .book .bookImage {
+  width: 250px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
 }
-
-.book p {
-  margin: 5px;
-  width: 70%;
-  font-size: 12px;
-  max-height: 250px;
+.booksContainer .books .book .bookInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: left;
 }
-
-.book .price {
+.booksContainer .books .book .bookInfo h2 {
   font-weight: 500;
-  font-size: 18px;
-  margin: 10px 0;
+  margin-bottom: 10px;
 }
-
-.button-container {
+.booksContainer .books .book .bookInfo p {
+  line-break: anywhere;
+  margin-bottom: 10px;
+}
+.booksContainer .books .book .bookInfo .price {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.booksContainer .books .book .buttonContent {
   display: flex;
   gap: 10px;
-  justify-content: center;
-  margin-top: 10px;
 }
-
-.book button,
-.book .update {
+.booksContainer .books .book .buttonContent .delete,
+.booksContainer .books .book .buttonContent .update {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
@@ -87,42 +106,47 @@ body {
   border-radius: 5px;
   transition: background-color 0.3s;
 }
-
-.delete {
+.booksContainer .books .book .buttonContent .delete:hover,
+.booksContainer .books .book .buttonContent .update:hover {
+  transform: scale(1.05);
+}
+.booksContainer .books .book .buttonContent .delete {
   background-color: rgb(242, 100, 100);
   color: #fff;
-  font-size: 14px;
 }
-
-.delete:hover {
+.booksContainer .books .book .buttonContent .delete:hover {
   background-color: rgb(220, 50, 50);
 }
-
-.update {
+.booksContainer .books .book .buttonContent .update {
   background-color: rgb(139, 139, 234);
   color: #fff;
   text-decoration: none;
-  font-size: 14px;
 }
-
-.update:hover {
+.booksContainer .books .book .buttonContent .update:hover {
   background-color: rgb(100, 100, 200);
 }
 
-.addButton {
+.addButtonContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.addButtonContainer .addButton {
   display: inline-block;
-  padding: 10px 20px;
-  margin: 20px;
+  padding: 15px 30px;
+  margin: 30px 0;
   background-color: #00796b;
   color: #fff;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 8px;
   text-decoration: none;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
+  text-align: center;
+  font-size: 16px;
 }
-
-.addButton:hover {
+.addButtonContainer .addButton:hover {
   background-color: #006054;
+  transform: scale(1.05);
 }
 
 .form {
@@ -134,108 +158,51 @@ body {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 500px;
-  margin: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
 }
-
 .form input,
 .form textarea {
   width: 100%;
-  padding: 10px;
+  padding: 15px;
   border: 1px solid #b0b0b0;
   border-radius: 5px;
-  font-size: 16px;
   transition: border-color 0.3s;
+  font-size: 16px;
 }
-
-.form textarea {
-  resize: none;
-}
-
 .form input:focus,
 .form textarea:focus {
   border-color: #00796b;
   outline: none;
 }
-
+.form textarea {
+  resize: none;
+}
 .form .formButton {
+  display: flex;
+  justify-content: center;
   border: none;
   width: 100%;
-  padding: 10px;
+  padding: 15px;
   background-color: #00796b;
   color: #fff;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  font-size: 14px;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 16px;
 }
-
-.formButton:hover {
+.form .formButton:hover {
   background-color: #00463e;
+  transform: scale(1.05);
 }
 
 .error-message {
   color: red;
   font-weight: bold;
   margin-top: 10px;
-}
-
-@media (max-width: 1024px) {
-  .book h2 {
-    font-size: 12px;
-  }
-  .book p {
-    font-size: 12px;
-  }
-  .book .price {
-    font-size: 14px;
-  }
-}
-@media (max-width: 768px) {
-  .app h1 {
-    font-size: 22px;
-  }
-  .book {
-    flex: 1 1 calc(50% - 20px);
-    max-width: calc(50% - 20px);
-    gap: 10px;
-  }
-  .book h2 {
-    font-size: 12px;
-  }
-  .book .price {
-    font-size: 12px;
-  }
-  .book button,
-  .book .update {
-    font-size: 12px;
-  }
-  .addButton {
-    font-size: 14px;
-  }
-}
-@media (max-width: 480px) {
-  .book {
-    flex: 1 1 100%;
-    max-width: 100%;
-    gap: 0px;
-    padding: 10px;
-    margin: 10px;
-  }
-  .book button,
-  .book .update {
-    padding: 6px 12px;
-  }
-  .addButton {
-    padding: 6px 12px;
-    margin: 10px;
-  }
-  .form {
-    gap: 10px;
-    padding: 10px;
-    width: 400px;
-  }
+  font-size: 14px;
 }
 
 /*# sourceMappingURL=style.css.map */

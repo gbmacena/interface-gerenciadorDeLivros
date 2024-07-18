@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700&display=swap");
 @import "variables";
+@import "media-queries";
 
 * {
   padding: 0;
@@ -10,121 +11,140 @@
 
 body {
   background-color: $background-color;
+  font-size: $font-size-base;
 }
 
 .app {
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.app h1 {
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.books {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-}
-
-.book {
-  flex: 1 1 calc(33.33% - 20px);
-  width: 400px;
-  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 20px;
+
+  h1 {
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+  }
 }
 
-.book img {
-  width: 200px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: $box-shadow;
-}
-
-.book h2 {
-  width: 100%;
-  font-size: $font-size-lg;
-  font-weight: 500;
-  margin: 10px 0;
-}
-
-.book p {
-  margin: 5px;
-  width: 70%;
-  font-size: $font-size-xs;
-  max-height: 250px;
-  text-align: left;
-}
-
-.book .price {
-  font-weight: 500;
-  font-size: $font-size-lg;
-  margin: 10px 0;
-}
-
-.button-container {
+.booksContainer {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+
+  .books {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .book {
+      display: flex;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: $box-shadow;
+      gap: 20px;
+
+      .bookImage {
+        width: 250px;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .bookInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        text-align: left;
+
+        h2 {
+          font-weight: 500;
+          margin-bottom: 10px;
+        }
+
+        p {
+          line-break: anywhere;
+          margin-bottom: 10px;
+        }
+
+        .price {
+          font-weight: 500;
+          margin-bottom: 10px;
+        }
+      }
+
+      .buttonContent {
+        display: flex;
+        gap: 10px;
+
+        .delete,
+        .update {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 10px 20px;
+          border: none;
+          cursor: pointer;
+          font-weight: bold;
+          border-radius: 5px;
+          transition: background-color 0.3s;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+
+        .delete {
+          background-color: $red;
+          color: $white;
+
+          &:hover {
+            background-color: $hover-red;
+          }
+        }
+
+        .update {
+          background-color: $blue;
+          color: $white;
+          text-decoration: none;
+
+          &:hover {
+            background-color: $hover-blue;
+          }
+        }
+      }
+    }
+  }
+}
+
+.addButtonContainer {
+  display: flex;
   justify-content: center;
-  margin-top: 10px;
-}
+  width: 100%;
 
-.book button,
-.book .update {
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
+  .addButton {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 30px 0;
+    background-color: $btn-primary-color;
+    color: $white;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    font-size: $font-size-base;
 
-.delete {
-  background-color: $red;
-  color: $white;
-  font-size: $font-size-small;
-}
-
-.delete:hover {
-  background-color: $hover-red;
-}
-
-.update {
-  background-color: $blue;
-  color: $white;
-  text-decoration: none;
-  font-size: $font-size-small;
-}
-
-.update:hover {
-  background-color: $hover-blue;
-}
-
-.addButton {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 20px;
-  background-color: $btn-primary-color;
-  color: $white;
-  font-weight: bold;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.addButton:hover {
-  background-color: darken($btn-primary-color, 5%);
+    &:hover {
+      background-color: darken($btn-primary-color, 5%);
+      transform: scale(1.05);
+    }
+  }
 }
 
 .form {
@@ -136,51 +156,53 @@ body {
   border-radius: 10px;
   padding: 20px;
   box-shadow: $box-shadow;
-  width: 500px;
-  margin: 10px;
-}
-
-.form input,
-.form textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #b0b0b0;
-  border-radius: 5px;
-  font-size: $font-size-base;
-  transition: border-color 0.3s;
-}
+  max-width: 600px;
+  margin: 20px auto;
 
-.form textarea {
-  resize: none;
-}
+  input,
+  textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #b0b0b0;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+    font-size: $font-size-base;
 
-.form input:focus,
-.form textarea:focus {
-  border-color: $btn-primary-color;
-  outline: none;
-}
+    &:focus {
+      border-color: $btn-primary-color;
+      outline: none;
+    }
+  }
 
-.form .formButton {
-  border: none;
-  width: 100%;
-  padding: 10px;
-  background-color: $btn-primary-color;
-  color: $white;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  font-size: $font-size-small;
-}
+  textarea {
+    resize: none;
+  }
 
-.formButton:hover {
-  background-color: darken($btn-primary-color, 10%);
+  .formButton {
+    display: flex;
+    justify-content: center;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    background-color: $btn-primary-color;
+    color: $white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: $font-size-base;
+
+    &:hover {
+      background-color: darken($btn-primary-color, 10%);
+      transform: scale(1.05);
+    }
+  }
 }
 
 .error-message {
   color: red;
   font-weight: bold;
   margin-top: 10px;
+  font-size: $font-size-small;
 }
-
-@import "media-queries";

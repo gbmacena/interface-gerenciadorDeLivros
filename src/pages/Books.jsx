@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FaTrash } from "react-icons/fa";
+import { MdModeEdit } from "react-icons/md";
 
 const Books = () => {
   const [books, setBooks] = useState([]);
@@ -32,30 +34,39 @@ const Books = () => {
   };
 
   return (
-    <div>
-      <h1>Lista de Livros</h1>
-      {error && <p>Algo deu errado ao buscar os livros!</p>}
-      <div className="books">
-        {books.map((book) => (
-          <div key={book._id} className="book">
-            <img src={book.cover} alt={book.title} />
-            <h2>{book.title}</h2>
-            <p>{book.desc}</p>
-            <span className="price">{book.price}R$</span>
-            <div className="button-container">
-              <button onClick={() => handleDelete(book._id)} className="delete">
-                Deletar
-              </button>
-              <Link to={`/update/${book._id}`} className="update">
-                Editar
-              </Link>
+    <div className="app">
+      <h1>Livros</h1>
+      <div className="booksContainer">
+        {error && <p>Algo deu errado ao buscar os livros!</p>}
+        <div className="books">
+          {books.map((book) => (
+            <div key={book._id} className="book">
+              <img src={book.cover} alt={book.title} className="bookImage" />
+              <div className="bookInfo">
+                <h2>{book.title}</h2>
+                <p>{book.desc}</p>
+                <span className="price">{book.price}R$</span>
+                <div className="buttonContent">
+                  <button
+                    onClick={() => handleDelete(book._id)}
+                    className="delete"
+                  >
+                    <FaTrash />
+                  </button>
+                  <Link to={`/update/${book._id}`} className="update">
+                    <MdModeEdit />
+                  </Link>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <div className="addButtonContainer">
+          <Link to="/add" className="addButton">
+            Adicionar Novo Livro
+          </Link>
+        </div>
       </div>
-      <Link to="/add" className="addButton">
-        Adicionar Novo Livro
-      </Link>
     </div>
   );
 };

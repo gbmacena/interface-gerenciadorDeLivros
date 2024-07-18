@@ -1,58 +1,32 @@
-@media (max-width: 1024px) {
-  .book h2 {
-    font-size: $font-size-xs;
-  }
-  .book p {
-    font-size: $font-size-xs;
-  }
-  .book .price {
-    font-size: $font-size-small;
-  }
-}
+@import "variables";
 
 @media (max-width: 768px) {
-  .app h1 {
-    font-size: 22px;
-  }
-  .book {
-    flex: 1 1 calc(50% - 20px);
-    max-width: calc(50% - 20px);
-    gap: 10px;
-  }
-  .book h2 {
-    font-size: $font-size-xs;
-  }
-  .book .price {
-    font-size: $font-size-xs;
-  }
-  .book button,
-  .book .update {
-    font-size: $font-size-xs;
-  }
-  .addButton {
-    font-size: $font-size-small;
+  .books {
+    .book {
+      align-items: center;
+      flex-direction: column;
+
+      .bookInfo {
+        align-items: center;
+        display: flex;
+        margin-top: 10px;
+
+        p {
+          font-size: $font-size-small;
+        }
+      }
+    }
   }
 }
 
-@media (max-width: 480px) {
-  .book {
-    flex: 1 1 100%;
-    max-width: 100%;
-    gap: 0px;
-    padding: 10px;
-    margin: 10px;
-  }
-  .book button,
-  .book .update {
-    padding: 6px 12px;
-  }
-  .addButton {
-    padding: 6px 12px;
-    margin: 10px;
-  }
-  .form {
-    gap: 10px;
-    padding: 10px;
-    width: 400px;
+@media (max-width: 425px) {
+  .bookInfo {
+    h2 {
+      font-size: $font-size-lg;
+    }
+
+    p {
+      font-size: $font-size-xs;
+    }
   }
 }
